@@ -88,6 +88,16 @@ void vLEDBTNTask(void *pvParameters )
 
 }
 
+void vLEDBTNREDTask(void *pvParameters )
+{
+	 for( ;; )
+	  {
+	      HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);
+	      HAL_Delay(500);
+	  }
+
+}
+
 /* USER CODE END 0 */
 
 int main(void)
@@ -142,7 +152,7 @@ int main(void)
   /* add threads, ... */
 
   xTaskCreate( vLEDBTNTask, "BTNx", configMINIMAL_STACK_SIZE, NULL, 0, ( TaskHandle_t * ) NULL);
-
+  xTaskCreate( vLEDBTNREDTask, "BTNREDx", configMINIMAL_STACK_SIZE, NULL, 0, ( TaskHandle_t * ) NULL);
 
   /* USER CODE END RTOS_THREADS */
 
@@ -269,7 +279,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : PD12 */
-  GPIO_InitStruct.Pin = GPIO_PIN_12;
+  GPIO_InitStruct.Pin = GPIO_PIN_12 | GPIO_PIN_13;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
