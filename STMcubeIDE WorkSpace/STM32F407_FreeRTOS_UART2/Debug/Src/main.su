@@ -1,0 +1,6 @@
+main.c:86:6:main_task1	48	static
+main.c:104:6:main_task2	48	static
+main.c:340:6:StartDefaultTask	8	static
+main.c:209:6:SystemClock_Config	96	static
+main.c:123:5:main	48	static
+main.c:357:6:_Error_Handler	0	static
