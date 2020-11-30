@@ -88,7 +88,6 @@ void main_task1() {
 	int i = 0;
 	char str[] = "Hello world!\r\n";
 	while(1) {
-		//while(USART_Send(USART6, str, strlen(str), NON_BLOCKING) < 0);
 		if(xQueueSendToBack(Q, &str[i], 50) == pdPASS)
 			i = (i + 1) % strlen(str);
 	}
@@ -101,8 +100,6 @@ void main_task2() {
 	//USART_EnableRxPipe(USART6);
 	while(1) {
 		if(xQueueReceive(Q, &c, 50)) {
-		//if(USART_Read(USART6, &c, 1, NON_BLOCKING))
-//			USART_Send(USART2, &c, 1, BLOCKING);
 
 			HAL_UART_Transmit(&huart2, &c, 1, 0);
 			vTaskDelay(1);
