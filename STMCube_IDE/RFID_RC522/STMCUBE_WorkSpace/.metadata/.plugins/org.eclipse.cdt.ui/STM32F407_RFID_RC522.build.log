@@ -1,0 +1,10 @@
+20:28:27 **** Incremental Build of configuration Debug for project STM32F407_RFID_RC522 ****
+make -j4 all 
+arm-none-eabi-size   STM32F407_RFID_RC522.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8512	     20	   1724	  10256	   2810	STM32F407_RFID_RC522.elf
+Finished building: default.size.stdout
+ 
+
+20:28:29 Build Finished. 0 errors, 0 warnings. (took 1s.603ms)
+
